@@ -187,7 +187,7 @@
   .sec > .lead{margin-top:10px; color:var(--muted); font-size:.95rem; max-width:40em;}
   .sec-body{margin-top:28px;}
 
-  /* selected work */
+  /* highlight */
   .work{display:grid; grid-template-columns:288px minmax(0,1fr); gap:24px 32px; padding-block:30px; border-top:1px solid var(--line); align-items:start;}
   .work:first-child{border-top:0; padding-top:0;}
   .work h3{font-family:var(--font-display); font-weight:var(--display-weight); letter-spacing:var(--display-tracking); font-size:1.45rem; line-height:1.2; margin-top:6px;}
@@ -277,9 +277,10 @@
   <div class="wrap">
     <a class="brand" href="#top">Zach Wang</a>
     <nav class="nav-links" aria-label="Sections">
-      <a href="#work">Work</a>
+      <a href="#work">Highlight</a>
       <a href="#experience">Experience</a>
       <a href="#publications">Publications</a>
+      <a href="#lab">In the lab</a>
       <a href="#life">Outside the lab</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -293,7 +294,7 @@
     <div>
       <h1>Zichen (Zachary) Wang</h1>
       <p class="role">Ph.D. candidate · <a href="https://www.schoeneberglab.org" target="_blank" rel="noopener">Johannes Schöneberg Lab</a>, UC San Diego · San Diego, CA</p>
-      <p class="bio">I'm an imaging and computational scientist trained across wet and dry lab. My Ph.D. work spans the whole loop: designing 4D live-cell imaging experiments on lattice light-sheet microscopes, building GPU-accelerated pipelines that turn terabytes of raw data into AI-ready datasets, and developing self-supervised models that map cellular phenotypes across states. Through a deep understanding of biology paired with hands-on experimental expertise, I bring awareness of experimental caveats into data curation and model interpretation, in order to build biology-grounded AI systems with real potential for drug discovery. I finish in December 2026 and am looking to bring this approach to an industry team working on imaging-based phenomics or AI-enabled drug discovery.</p>
+      <p class="bio">I'm an imaging and computational scientist trained across wet and dry lab. My Ph.D. work spans the whole loop: designing 4D live-cell imaging experiments on lattice light-sheet microscopes, building GPU-accelerated pipelines that turn terabytes of raw data into AI-ready datasets, and developing self-supervised models that map cellular phenotypes across states. Through a strong understanding of biology paired with hands-on experimental expertise, I bring an experimental perspective to data curation and model interpretation so we can build biology-grounded AI systems with real potential for drug discovery. I finish in December 2026 and am looking to bring this approach to an industry team working on imaging-based phenomics or AI-enabled drug discovery.</p>
       <div class="links">
         <a class="primary" href="mailto:ziw056@ucsd.edu">Email</a>
         <a href="Zach_Wang_CV.pdf" target="_blank" rel="noopener">CV (PDF)</a>
@@ -308,9 +309,9 @@
     </div>
   </section>
 
-  <!-- ============ SELECTED WORK ============ -->
+  <!-- ============ HIGHLIGHT ============ -->
   <section class="sec" id="work">
-    <p class="eyebrow">Selected work</p>
+    <p class="eyebrow">Highlight</p>
     <h2>Making 4D live-cell data learnable</h2>
     <p class="lead">Living cells imaged in x, y, z and time produce data nothing off-the-shelf can handle. These four projects built the stack that can.</p>
     <div class="sec-body">
@@ -492,6 +493,18 @@
     </div>
   </section>
 
+
+  <!-- ============ IN THE LAB ============ -->
+  <section class="sec" id="lab">
+    <p class="eyebrow">In the lab</p>
+    <h2>Day to day</h2>
+    <div class="sec-body">
+      <div class="photos">
+        <figure class="photo slot missing"><img src="media/lab-1.jpg" alt="At my workstation with 4D lattice light-sheet data on screen"><span class="ph">photo<br>media/lab-1.jpg</span></figure>
+        <figure class="photo slot missing"><img src="media/lab-2.jpg" alt="Presenting the MitoSpace poster at a conference"><span class="ph">photo<br>media/lab-2.jpg</span></figure>
+      </div>
+    </div>
+  </section>
 
   <!-- ============ OUTSIDE THE LAB ============ -->
   <section class="sec" id="life">

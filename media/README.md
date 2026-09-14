@@ -12,6 +12,7 @@ no HTML edits needed. Until a file exists, the page shows a labeled empty slot.
 | `livelattice.mp4` | Selected work → LiveLattice | same |
 | `mitospace.jpg`, `readdy-cell.jpg`, `mitotnt.jpg`, `livelattice.jpg` | Poster frames shown before each video loads | Optional. |
 | `full/mitospace.mp4`, `full/readdy-cell.mp4`, `full/mitotnt.mp4`, `full/livelattice.mp4` | Opened by the "Full size" button on each card (or by clicking the video) | Optional. Higher resolution (up to 1080p), no audio. If a file is missing the button falls back to the small card video. |
+| `lab-1.jpg`, `lab-2.jpg` | In the lab → photo grid | Cropped to 4:3 already. Shown without captions. |
 | `life-snowboarding.jpg`, `life-scuba.jpg`, `life-cats.jpg`, `life-cs2.jpg` | Outside the lab → photo grid | Cropped to 4:3 already. Shown without captions. |
 
 To make a small, web-friendly MP4 from a screen recording or a GIF:

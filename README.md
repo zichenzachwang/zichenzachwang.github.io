@@ -29,7 +29,7 @@ then open <http://localhost:8000>.
    ```bash
    git init
    git add .
-   git commit -m "Personal website"
+   git commit -m "Update"
    git branch -M main
    git remote add origin https://github.com/zichenzachwang/zichenzachwang.github.io.git
    git push -u origin main
