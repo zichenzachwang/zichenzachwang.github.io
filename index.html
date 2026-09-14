@@ -1,0 +1,611 @@
+<!doctype html>
+<html lang="en" data-style="d">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zach Wang</title>
+<meta name="description" content="Zichen (Zachary) Wang — imaging and computational scientist working on machine learning for 4D live-cell microscopy. Ph.D. candidate, Schöneberg Lab, UC San Diego.">
+<meta name="author" content="Zichen (Zachary) Wang">
+<meta property="og:title" content="Zach Wang">
+<meta property="og:description" content="Zichen (Zachary) Wang — imaging and computational scientist working on machine learning for 4D live-cell microscopy. Ph.D. candidate, Schöneberg Lab, UC San Diego.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="media/headshot.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230E7C86'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='18' fill='white' text-anchor='middle'%3EZW%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<script>document.documentElement.dataset.style='d';</script>
+
+<style>
+  /* ---------- Style A · Paper (default) ---------- */
+  :root{
+    --font-display:'Newsreader',Georgia,'Times New Roman',serif;
+    --font-body:'IBM Plex Sans','Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    --font-mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+    --display-weight:500; --display-tracking:-.01em; --h1-size:clamp(2.1rem,4.2vw,2.9rem);
+    --bg:#F5F7F6; --surface:#FFFFFF; --surface-2:#E9EEEC;
+    --ink:#152220; --ink-2:#3B4846; --muted:#6B7873;
+    --line:#D8DFDC; --line-strong:#B7C2BD;
+    --accent:#0E7C86; --accent-ink:#0A5F67; --on-accent:#F5F7F6;
+    --me:#B0236F;
+    --radius:8px; --measure:820px;
+    --gutter:clamp(16px, 4vw, 40px);
+    color-scheme:light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0F1514; --surface:#151C1B; --surface-2:#1C2625;
+      --ink:#E8EEEC; --ink-2:#C4CECB; --muted:#8E9B97;
+      --line:#263130; --line-strong:#384744;
+      --accent:#4CC2CB; --accent-ink:#8ADCE1; --on-accent:#0F1514;
+      --me:#E56BB6;
+      color-scheme:dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0F1514; --surface:#151C1B; --surface-2:#1C2625;
+    --ink:#E8EEEC; --ink-2:#C4CECB; --muted:#8E9B97;
+    --line:#263130; --line-strong:#384744;
+    --accent:#4CC2CB; --accent-ink:#8ADCE1; --on-accent:#0F1514;
+    --me:#E56BB6;
+    color-scheme:dark;
+  }
+
+  /* ---------- Style B · Technical ---------- */
+  :root[data-style="b"]{
+    --font-display:'Archivo','Helvetica Neue',Arial,sans-serif;
+    --font-body:'Source Sans 3','Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    --font-mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+    --display-weight:600; --display-tracking:-.025em; --h1-size:clamp(2.2rem,4.4vw,3.1rem);
+    --bg:#FFFFFF; --surface:#F6F7F9; --surface-2:#EDEFF3;
+    --ink:#111418; --ink-2:#3A4049; --muted:#6C7480;
+    --line:#E1E4EA; --line-strong:#C3C8D2;
+    --accent:#1F5AE0; --accent-ink:#1747B8; --on-accent:#FFFFFF;
+    --me:#C2185B;
+    --radius:4px; --measure:860px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root[data-style="b"]:not([data-theme="light"]){
+      --bg:#0F1216; --surface:#161A20; --surface-2:#1D2229;
+      --ink:#E9ECF1; --ink-2:#C3C9D3; --muted:#8B93A1;
+      --line:#262C35; --line-strong:#3A424E;
+      --accent:#6D9BFF; --accent-ink:#8FB2FF; --on-accent:#0F1216;
+      --me:#F06BA0;
+    }
+  }
+  :root[data-style="b"][data-theme="dark"]{
+    --bg:#0F1216; --surface:#161A20; --surface-2:#1D2229;
+    --ink:#E9ECF1; --ink-2:#C3C9D3; --muted:#8B93A1;
+    --line:#262C35; --line-strong:#3A424E;
+    --accent:#6D9BFF; --accent-ink:#8FB2FF; --on-accent:#0F1216;
+    --me:#F06BA0;
+  }
+
+  /* ---------- Style C · Classic ---------- */
+  :root[data-style="c"]{
+    --font-display:'Fraunces',Georgia,'Times New Roman',serif;
+    --font-body:'Source Serif 4',Georgia,'Times New Roman',serif;
+    --font-mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+    --display-weight:500; --display-tracking:-.005em; --h1-size:clamp(2.2rem,4.4vw,3rem);
+    --bg:#FBF8F2; --surface:#FFFFFF; --surface-2:#EFE9DE;
+    --ink:#2A2521; --ink-2:#4D453F; --muted:#7A7169;
+    --line:#E3DCCF; --line-strong:#C9BFAE;
+    --accent:#2E6B4E; --accent-ink:#245640; --on-accent:#FBF8F2;
+    --me:#A8324A;
+    --radius:2px; --measure:760px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root[data-style="c"]:not([data-theme="light"]){
+      --bg:#171412; --surface:#1E1A17; --surface-2:#26211D;
+      --ink:#EFE9E1; --ink-2:#CFC6BA; --muted:#978D80;
+      --line:#302A25; --line-strong:#463E37;
+      --accent:#7FC29B; --accent-ink:#9AD1B0; --on-accent:#171412;
+      --me:#E5768A;
+    }
+  }
+  :root[data-style="c"][data-theme="dark"]{
+    --bg:#171412; --surface:#1E1A17; --surface-2:#26221D;
+    --ink:#EFE9E1; --ink-2:#CFC6BA; --muted:#978D80;
+    --line:#302A25; --line-strong:#463E37;
+    --accent:#7FC29B; --accent-ink:#9AD1B0; --on-accent:#171412;
+    --me:#E5768A;
+  }
+
+  /* ---------- Style D · Dark (single look, ignores system theme) ---------- */
+  :root[data-style="d"], :root[data-style="d"][data-theme="light"], :root[data-style="d"][data-theme="dark"]{
+    --font-display:'Newsreader',Georgia,'Times New Roman',serif;
+    --font-body:'IBM Plex Sans','Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    --font-mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+    --display-weight:400; --display-tracking:-.01em; --h1-size:clamp(2.2rem,4.4vw,3.1rem);
+    --bg:#0B0F12; --surface:#12181C; --surface-2:#182026;
+    --ink:#E8EDF0; --ink-2:#BFC8CE; --muted:#84919A;
+    --line:#1F292F; --line-strong:#334049;
+    --accent:#35C4D6; --accent-ink:#6AD5E3; --on-accent:#0B0F12;
+    --me:#F26AB5;
+    --radius:6px; --measure:820px;
+    color-scheme:dark;
+  }
+
+  html{scroll-behavior:smooth; scroll-padding-top:72px;}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
+  *,*::before,*::after{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:var(--font-body); font-size:17px; line-height:1.6;
+    padding-inline:var(--gutter); padding-block:0 56px;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  }
+  a{color:var(--accent-ink); text-decoration:none; text-underline-offset:.16em;}
+  a:hover{text-decoration:underline;}
+  :focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:2px;}
+  h1,h2,h3{margin:0; text-wrap:balance; font-weight:500;}
+  p{margin:0;}
+  ul{margin:0; padding:0; list-style:none;}
+  figure{margin:0;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:var(--measure); margin-inline:auto;}
+  .display{font-family:var(--font-display); font-weight:var(--display-weight); letter-spacing:var(--display-tracking);}
+  .eyebrow{font-family:var(--font-mono); font-size:.72rem; font-weight:500; letter-spacing:.08em; text-transform:uppercase; color:var(--muted);}
+  .me{color:var(--me); font-weight:600;}
+
+  /* nav */
+  .nav{position:sticky; top:0; z-index:20; margin-inline:calc(-1 * var(--gutter)); padding-inline:var(--gutter);
+       background:color-mix(in srgb, var(--bg) 90%, transparent); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+       border-bottom:1px solid var(--line);}
+  .nav .wrap{display:flex; align-items:center; justify-content:space-between; gap:24px; min-height:54px;}
+  .brand{font-family:var(--font-display); font-weight:var(--display-weight); font-size:1.2rem; color:var(--ink); white-space:nowrap;}
+  .brand:hover{text-decoration:none; color:var(--accent-ink);}
+  .nav-links{display:flex; gap:20px; overflow-x:auto; scrollbar-width:none; font-size:.9rem; font-weight:500;}
+  .nav-links::-webkit-scrollbar{display:none;}
+  .nav-links a{color:var(--ink-2); white-space:nowrap; padding-block:.4rem;}
+  .nav-links a:hover{color:var(--accent-ink); text-decoration:none;}
+
+  /* hero */
+  .hero{display:grid; grid-template-columns:minmax(0,1fr) 168px; gap:40px; align-items:start; padding-block:clamp(40px,7vw,72px) 8px;}
+  .hero h1{font-family:var(--font-display); font-weight:var(--display-weight); letter-spacing:var(--display-tracking); font-size:var(--h1-size); line-height:1.1;}
+  .role{margin-top:8px; color:var(--muted); font-size:.95rem;}
+  .bio{margin-top:16px; color:var(--ink-2); max-width:38em;}
+  .links{display:flex; flex-wrap:wrap; gap:6px 18px; margin-top:22px; font-size:.92rem; font-weight:500; align-items:center;}
+  .links a.primary{color:var(--on-accent); background:var(--accent-ink); padding:.35em .8em; border-radius:calc(var(--radius) - 2px);}
+  .links a.primary:hover{background:var(--accent); text-decoration:none;}
+  .links a.ext::after{content:" ↗"; font-size:.8em; color:var(--muted);}
+  .portrait{position:relative; width:168px; aspect-ratio:1; border-radius:var(--radius); overflow:hidden; background:var(--surface-2); border:1px solid var(--line); margin-top:6px;}
+  .portrait img{width:100%; height:100%; object-fit:cover;}
+  .ph{position:absolute; inset:0; display:none; place-items:center; text-align:center; padding:12px;
+      font-family:var(--font-mono); font-size:.68rem; line-height:1.6; color:var(--muted);}
+  .ph b{display:block; font-weight:500; color:var(--ink-2);}
+  .missing img, .missing video{display:none;} .missing .ph{display:grid;}
+
+  /* sections */
+  .sec{padding-top:clamp(44px,6vw,64px); margin-top:clamp(36px,5vw,56px); border-top:1px solid var(--line);}
+  .sec > h2{font-family:var(--font-display); font-weight:var(--display-weight); letter-spacing:var(--display-tracking); font-size:1.75rem; line-height:1.15; margin-top:8px;}
+  .sec > .lead{margin-top:10px; color:var(--muted); font-size:.95rem; max-width:40em;}
+  .sec-body{margin-top:28px;}
+
+  /* selected work */
+  .work{display:grid; grid-template-columns:288px minmax(0,1fr); gap:24px 32px; padding-block:30px; border-top:1px solid var(--line); align-items:start;}
+  .work:first-child{border-top:0; padding-top:0;}
+  .work h3{font-family:var(--font-display); font-weight:var(--display-weight); letter-spacing:var(--display-tracking); font-size:1.45rem; line-height:1.2; margin-top:6px;}
+  .work h3 span{color:var(--muted); font-weight:400;}
+  .work .ptitle{margin-top:6px; font-size:.9rem; color:var(--muted); font-style:italic; line-height:1.45;}
+  .work .authors{margin-top:3px; font-size:.86rem; color:var(--muted);}
+  .work .desc{margin-top:12px; color:var(--ink-2); font-size:.98rem;}
+  .work .wlinks{display:flex; flex-wrap:wrap; gap:4px 16px; margin-top:12px; font-size:.9rem; font-weight:500;}
+  .work .wlinks a::after{content:" ↗"; font-size:.8em; color:var(--muted);}
+  .media{position:relative; aspect-ratio:4/3; border-radius:var(--radius); overflow:hidden; background:var(--surface-2); border:1px solid var(--line);}
+  .media video{display:block; width:100%; height:100%; object-fit:cover; background:var(--surface-2);}
+  .media video{cursor:zoom-in;}
+  .media video[controls]{cursor:default;}
+  .media .expand{position:absolute; right:8px; bottom:8px; z-index:2; font-family:var(--font-mono); font-size:.66rem; font-weight:500; letter-spacing:.06em; text-transform:uppercase; color:#fff; background:rgba(0,0,0,.55); border:1px solid rgba(255,255,255,.25); border-radius:999px; padding:5px 10px; cursor:pointer; opacity:0; transition:opacity .15s ease, background .15s ease; backdrop-filter:blur(4px);}
+  .media:hover .expand, .media:focus-within .expand, .media .expand:focus-visible{opacity:1;}
+  .media .expand:hover{background:rgba(0,0,0,.8);}
+  .media.missing .expand{display:none;}
+  @media (hover:none){ .media .expand{opacity:1;} }
+  .lightbox{border:0; padding:0; background:transparent; max-width:none; max-height:none; width:100vw; height:100vh; margin:0; display:none; place-items:center;}
+  .lightbox[open]{display:grid;}
+  .lightbox::backdrop{background:rgba(6,10,10,.92);}
+  .lightbox video{display:block; max-width:min(96vw,1920px); max-height:88vh; width:auto; height:auto; background:#000; border-radius:var(--radius); box-shadow:0 30px 80px rgba(0,0,0,.6); outline:0;}
+  .lightbox .lb-bar{position:fixed; top:14px; right:16px; left:16px; display:flex; justify-content:space-between; align-items:center; gap:12px; font-family:var(--font-mono); font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color:rgba(255,255,255,.7);}
+  .lightbox .lb-close{font:inherit; color:#fff; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.25); border-radius:999px; padding:7px 14px; cursor:pointer;}
+  .lightbox .lb-close:hover{background:rgba(255,255,255,.22);}
+
+  /* rows (experience, education, awards, patents) */
+  .group + .group{margin-top:30px;}
+  .group h3{font-size:.95rem; font-weight:600; padding-bottom:8px; border-bottom:1px solid var(--line);}
+  .row{display:grid; grid-template-columns:6.2rem minmax(0,1fr); gap:0 16px; padding-block:11px; border-bottom:1px solid var(--line);}
+  .row .when{font-family:var(--font-mono); font-size:.76rem; color:var(--muted); padding-top:.28rem; font-variant-numeric:tabular-nums; white-space:nowrap;}
+  .row .what{font-weight:600; font-size:.97rem;}
+  .row .where{font-size:.9rem; color:var(--ink-2);}
+  .row .note{font-size:.88rem; color:var(--muted); margin-top:1px;}
+  .row .num{font-family:var(--font-mono); font-size:.74rem; color:var(--muted); margin-top:2px;}
+
+  /* publications */
+  .pub{display:grid; grid-template-columns:3.2rem minmax(0,1fr); gap:0 14px; padding-block:12px; border-bottom:1px solid var(--line);}
+  .pub .year{font-family:var(--font-mono); font-size:.76rem; color:var(--muted); padding-top:.3rem; font-variant-numeric:tabular-nums;}
+  .pub .title{font-weight:600; color:var(--ink); line-height:1.4; font-size:.97rem;}
+  a.title:hover{color:var(--accent-ink);}
+  .pub .meta{margin-top:3px; font-size:.88rem; color:var(--ink-2); display:flex; flex-wrap:wrap; gap:2px 10px; align-items:baseline;}
+  .pub .venue{font-style:italic;}
+  .tag{font-family:var(--font-mono); font-size:.66rem; font-weight:500; letter-spacing:.06em; text-transform:uppercase; color:var(--muted);}
+  .doi{font-family:var(--font-mono); font-size:.72rem; color:var(--muted);}
+  .doi:hover{color:var(--accent-ink);}
+
+
+  /* outside the lab */
+  .photos{display:grid; grid-template-columns:repeat(2,1fr); gap:14px;}
+  .photo{position:relative; aspect-ratio:4/3; border-radius:var(--radius); overflow:hidden; background:var(--surface-2); border:1px solid var(--line);}
+  .photo img{width:100%; height:100%; object-fit:cover;}
+
+  /* contact */
+  .contact p.big{font-family:var(--font-display); font-weight:var(--display-weight); letter-spacing:var(--display-tracking); font-size:clamp(1.5rem,3vw,2rem); line-height:1.25;}
+  .contact p.sub{margin-top:14px; color:var(--ink-2); max-width:36em;}
+  footer{margin-top:56px; padding-top:16px; border-top:1px solid var(--line); display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px 24px; font-size:.8rem; color:var(--muted);}
+
+  /* Style C layout: centered hero, round portrait */
+  :root[data-style="c"] .hero{grid-template-columns:1fr; justify-items:center; text-align:center; gap:22px;}
+  :root[data-style="c"] .portrait{order:-1; border-radius:50%; width:150px; margin-top:0;}
+  :root[data-style="c"] .bio{margin-inline:auto;}
+  :root[data-style="c"] .links{justify-content:center;}
+  :root[data-style="c"] .sec > h2{font-size:1.9rem;}
+  /* Style B: uppercase small-caps section labels, squarer buttons */
+  :root[data-style="b"] .sec > h2{font-size:1.6rem;}
+  /* Style D: true black for video wells */
+  :root[data-style="d"] .media video{background:#000;}
+
+  @media (max-width: 720px){
+    .hero{grid-template-columns:1fr; gap:24px;}
+    .portrait{order:-1; width:128px;}
+    .work{grid-template-columns:1fr;}
+    .media{max-width:420px;}
+    .tool{grid-template-columns:1fr; gap:2px;}
+    .photos{grid-template-columns:repeat(2,1fr); gap:10px;}
+  }
+  @media (max-width: 520px){
+    body{font-size:16px;}
+    .row,.pub{grid-template-columns:1fr; gap:2px;}
+    .pub .year,.row .when{padding-top:0;}
+  }
+
+</style>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">Zach Wang</a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#publications">Publications</a>
+      <a href="#life">Outside the lab</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div>
+      <h1>Zichen (Zachary) Wang</h1>
+      <p class="role">Ph.D. candidate · <a href="https://www.schoeneberglab.org" target="_blank" rel="noopener">Schöneberg Lab</a>, UC San Diego · San Diego, CA</p>
+      <p class="bio">I'm an imaging and computational scientist trained across wet and dry lab. My Ph.D. work spans the whole loop: designing 4D live-cell imaging experiments on lattice light-sheet microscopes, building GPU-accelerated pipelines that turn terabytes of raw data into AI-ready datasets, and developing self-supervised models that map cellular phenotypes across states. Through a deep understanding of biology paired with hands-on experimental expertise, I bring awareness of experimental caveats into data curation and model interpretation, in order to build biology-grounded AI systems with real potential for drug discovery. I finish in December 2026 and am looking to bring this approach to an industry team working on imaging-based phenomics or AI-enabled drug discovery.</p>
+      <div class="links">
+        <a class="primary" href="mailto:ziw056@ucsd.edu">Email</a>
+        <a href="Zach_Wang_CV.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+        <a class="ext" href="https://scholar.google.com/citations?user=X08Msa0AAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+        <a class="ext" href="https://github.com/zichenzachwang" target="_blank" rel="noopener">GitHub</a>
+        <a class="ext" href="https://www.linkedin.com/in/zichen-zachary-wang/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <div class="portrait slot missing" id="portrait">
+      <img src="media/headshot.jpg" alt="Portrait of Zach Wang">
+      <span class="ph">headshot<br>media/headshot.jpg</span>
+    </div>
+  </section>
+
+  <!-- ============ SELECTED WORK ============ -->
+  <section class="sec" id="work">
+    <p class="eyebrow">Selected work</p>
+    <h2>Making 4D live-cell data learnable</h2>
+    <p class="lead">Living cells imaged in x, y, z and time produce data nothing off-the-shelf can handle. These four projects built the stack that can.</p>
+    <div class="sec-body">
+
+      <article class="work">
+        <figure class="media slot missing">
+          <video autoplay muted loop playsinline preload="metadata" poster="media/mitospace.jpg" aria-label="MitoSpace demo video">
+            <source data-src="media/mitospace.mp4" type="video/mp4">
+          </video>
+          <span class="ph"><b>Demo video</b>media/mitospace.mp4</span>
+          <button class="expand" type="button" data-full="media/full/mitospace.mp4" aria-label="Open the MitoSpace video full size">Full size ⤢</button>
+        </figure>
+        <div>
+          <p class="eyebrow"><em>Cell</em> · 2026</p>
+          <h3>MitoSpace <span>— a self-supervised map of mitochondrial phenotypes</span></h3>
+          <p class="ptitle">4D spatiotemporal landscape of mitochondrial phenotypes across cellular states unlocked through representation learning</p>
+          <p class="authors">D. Agarwal*, <span class="me">Z. Wang*</span>, et al. &nbsp;·&nbsp; *equal contribution</p>
+          <p class="desc">A self-supervised representation-learning framework that embeds 4D lattice light-sheet volumes of mitochondria into a latent landscape where drug perturbations and cellular states organize semantically. Trained on imaging campaigns I designed and acquired, including high-content screens across 25+ drug conditions.</p>
+          <p class="wlinks">
+            <a href="https://doi.org/10.1016/j.cell.2026.08.028" target="_blank" rel="noopener">Paper</a>
+            <a href="https://github.com/schoeneberglab/MitoSpace4D" target="_blank" rel="noopener">Code</a>
+            <a href="https://mitospace.ai" target="_blank" rel="noopener">Interactive atlas</a>
+          </p>
+        </div>
+      </article>
+
+      <article class="work">
+        <figure class="media slot missing">
+          <video autoplay muted loop playsinline preload="metadata" poster="media/readdy-cell.jpg" aria-label="ReaDDy Cell demo video">
+            <source data-src="media/readdy-cell.mp4" type="video/mp4">
+          </video>
+          <span class="ph"><b>Demo video</b>media/readdy-cell.mp4</span>
+          <button class="expand" type="button" data-full="media/full/readdy-cell.mp4" aria-label="Open the ReaDDy Cell video full size">Full size ⤢</button>
+        </figure>
+        <div>
+          <p class="eyebrow"><em>Cell</em> · 2026</p>
+          <h3>ReaDDy Cell <span>— whole-cell digital twins from 4D microscopy</span></h3>
+          <p class="ptitle">Whole-cell particle-based digital twin simulations from 4D lattice light-sheet microscopy data</p>
+          <p class="authors">E. Arkfeld, <span class="me">Z. Wang</span>, et al.</p>
+          <p class="desc">Particle-based whole-cell simulations built directly from 4D lattice light-sheet data on the ReaDDy reaction–diffusion engine, used to test how mitochondrial transport changes when microtubules are disrupted. My part is the imaging side: the 4D acquisitions and the GPU-accelerated processing that turns raw data into simulation-ready inputs.</p>
+          <p class="wlinks">
+            <a href="https://doi.org/10.1016/j.cell.2026.06.010" target="_blank" rel="noopener">Paper</a>
+            <a href="https://github.com/schoeneberglab/readdy-cell" target="_blank" rel="noopener">Code</a>
+            <a href="https://simularium.allencell.org/viewer?trajUrl=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F1eyHEDfp78OaL4IH4dEBkmvlNlrS67Hiy%2Fview%3Fusp%3Dsharing&amp;t=0" target="_blank" rel="noopener">Interactive simulation</a>
+          </p>
+        </div>
+      </article>
+
+      <article class="work">
+        <figure class="media slot missing">
+          <video autoplay muted loop playsinline preload="metadata" poster="media/mitotnt.jpg" aria-label="MitoTNT demo video">
+            <source data-src="media/mitotnt.mp4" type="video/mp4">
+          </video>
+          <span class="ph"><b>Demo video</b>media/mitotnt.mp4</span>
+          <button class="expand" type="button" data-full="media/full/mitotnt.mp4" aria-label="Open the MitoTNT video full size">Full size ⤢</button>
+        </figure>
+        <div>
+          <p class="eyebrow"><em>PLOS Computational Biology</em> · 2023</p>
+          <h3>MitoTNT <span>— tracking organelle networks through time</span></h3>
+          <p class="ptitle">MitoTNT: Mitochondrial Temporal Network Tracking for 4D live-cell fluorescence microscopy data</p>
+          <p class="authors"><span class="me">Z. Wang</span>, et al.</p>
+          <p class="desc">Mitochondria form networks that fragment and fuse on the scale of seconds. MitoTNT follows them as graphs through 4D live-cell data, quantifying remodeling dynamics, motility and topology. Open source.</p>
+          <p class="wlinks">
+            <a href="https://doi.org/10.1371/journal.pcbi.1011060" target="_blank" rel="noopener">Paper</a>
+            <a href="https://github.com/pylattice/MitoTNT" target="_blank" rel="noopener">Code</a>
+          </p>
+        </div>
+      </article>
+
+      <article class="work">
+        <figure class="media slot missing">
+          <video autoplay muted loop playsinline preload="metadata" poster="media/livelattice.jpg" aria-label="LiveLattice demo video">
+            <source data-src="media/livelattice.mp4" type="video/mp4">
+          </video>
+          <span class="ph"><b>Demo video</b>media/livelattice.mp4</span>
+          <button class="expand" type="button" data-full="media/full/livelattice.mp4" aria-label="Open the LiveLattice video full size">Full size ⤢</button>
+        </figure>
+        <div>
+          <p class="eyebrow"><em>Journal of Microscopy</em> · 2025</p>
+          <h3>LiveLattice <span>— real-time lattice light-sheet data, as it streams</span></h3>
+          <p class="ptitle">LiveLattice: Real-time visualisation of tilted light-sheet microscopy data using a memory-efficient transformation algorithm</p>
+          <p class="authors"><span class="me">Z. Wang*</span>, H. Hakozaki*, et al. &nbsp;·&nbsp; *equal contribution</p>
+          <p class="desc">Lattice light-sheet microscopes write terabytes per experiment in a tilted coordinate frame nothing downstream can read. LiveLattice performs the geometric transformation with a memory-efficient algorithm fast enough to inspect data while it streams from the scope, and anchors the GPU-accelerated, OME-Zarr-based pipeline behind the lab's AI-ready datasets.</p>
+          <p class="wlinks">
+            <a href="https://doi.org/10.1111/jmi.13358" target="_blank" rel="noopener">Paper</a>
+            <a href="https://github.com/pylattice/LiveLattice" target="_blank" rel="noopener">Code</a>
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============ EXPERIENCE ============ -->
+  <section class="sec" id="experience">
+    <p class="eyebrow">Experience &amp; education</p>
+    <h2>Physics and biology, then both at once</h2>
+    <div class="sec-body">
+      <div class="group">
+        <h3>Research experience</h3>
+        <div class="row"><div class="when">2021 – now</div><div><div class="what">Graduate Researcher, <a href="https://www.schoeneberglab.org" target="_blank" rel="noopener">Schöneberg Lab</a></div><div class="where">Pharmacology · Biochemistry &amp; Molecular Biophysics, UC San Diego · Advisor: Johannes Schöneberg</div><div class="note">4D live-cell lattice light-sheet imaging, iPSC and organoid models, high-content drug screens, GPU pipelines, self-supervised learning</div></div></div>
+        <div class="row"><div class="when">2020 – 2021</div><div><div class="what">Graduate Researcher, Wang Lab</div><div class="where">Cellular &amp; Molecular Medicine, UC San Diego</div><div class="note">ChIP-seq and Hi-C analysis of 3D genome organization</div></div></div>
+        <div class="row"><div class="when">2019 – 2020</div><div><div class="what">Undergraduate Researcher, Kim Lab</div><div class="where">Physics · Center for the Physics of Living Cells, UIUC</div><div class="note">Single-molecule super-resolution (PALM) imaging of protein trafficking in live bacteria</div></div></div>
+        <div class="row"><div class="when">2018 – 2020</div><div><div class="what">Undergraduate Researcher, Pogorelov Lab</div><div class="where">Biochemistry · Center for Biophysics &amp; Quantitative Biology, UIUC</div><div class="note">All-atom molecular dynamics of membrane–peptide interactions on HPC clusters</div></div></div>
+      </div>
+      <div class="group">
+        <h3>Education</h3>
+        <div class="row"><div class="when">2020 – 2026</div><div><div class="what">Ph.D. in Chemistry</div><div class="where">University of California San Diego · expected December 2026</div></div></div>
+        <div class="row"><div class="when">2016 – 2020</div><div><div class="what">B.S. Physics &amp; B.S. Molecular and Cellular Biology</div><div class="where">University of Illinois Urbana–Champaign</div></div></div>
+      </div>
+      <div class="group">
+        <h3>Awards &amp; fellowships</h3>
+        <div class="row"><div class="when">2024 – 2026</div><div><div class="what">American Heart Association Predoctoral Fellowship</div><div class="note">4D mitochondrial profiling and drug screening for ischemia-reperfusion injury in heart cells</div></div></div>
+        <div class="row"><div class="when">2020</div><div><div class="what">Director's Recognition, Student Pushing Innovation Internship</div><div class="where">National Center for Supercomputing Applications</div></div></div>
+        <div class="row"><div class="when">2020</div><div><div class="what">Philip J. and Betty M. Anthony Undergraduate Research Prize</div><div class="where">Department of Physics, UIUC</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PUBLICATIONS ============ -->
+  <section class="sec" id="publications">
+    <p class="eyebrow">Publications &amp; patents</p>
+    <h2>Publications</h2>
+    <p class="lead"><span class="me">Z. Wang</span> marks me in each author list; * equal contribution. Full list on <a class="ext" href="https://scholar.google.com/citations?user=X08Msa0AAAAJ" target="_blank" rel="noopener">Google Scholar</a>.</p>
+    <div class="sec-body">
+
+      <div class="group">
+        <article class="pub"><div class="year">2026</div><div>
+          <a class="title" href="https://doi.org/10.1016/j.cell.2026.08.028" target="_blank" rel="noopener">4D spatiotemporal landscape of mitochondrial phenotypes across cellular states unlocked through representation learning</a>
+          <div class="meta"><span>D. Agarwal*, <span class="me">Z. Wang*</span>, et al.</span><span class="venue">Cell</span><a class="doi" href="https://doi.org/10.1016/j.cell.2026.08.028" target="_blank" rel="noopener">doi:10.1016/j.cell.2026.08.028</a></div></div></article>
+        <article class="pub"><div class="year">2026</div><div>
+          <a class="title" href="https://doi.org/10.1016/j.cell.2026.06.010" target="_blank" rel="noopener">Whole-cell particle-based digital twin simulations from 4D lattice light-sheet microscopy data</a>
+          <div class="meta"><span>E. Arkfeld, <span class="me">Z. Wang</span>, et al.</span><span class="venue">Cell</span><a class="doi" href="https://doi.org/10.1016/j.cell.2026.06.010" target="_blank" rel="noopener">doi:10.1016/j.cell.2026.06.010</a></div></div></article>
+        <article class="pub"><div class="year">2026</div><div>
+          <a class="title" href="https://doi.org/10.1186/s12859-026-06441-z" target="_blank" rel="noopener">GPU-accelerated MitoGraph for high-throughput three-dimensional mitochondrial morphology analysis</a>
+          <div class="meta"><span>S. Nahar, <span class="me">Z. Wang</span>, et al.</span><span class="venue">BMC Bioinformatics</span><a class="doi" href="https://doi.org/10.1186/s12859-026-06441-z" target="_blank" rel="noopener">doi:10.1186/s12859-026-06441-z</a></div></div></article>
+        <article class="pub"><div class="year">2026</div><div>
+          <span class="title">4D mitochondrial network assumes distinct and predictive phenotypes through human lung and intestinal epithelial development</span>
+          <div class="meta"><span>G. McMahon, …, <span class="me">Z. Wang</span>, et al.</span><span class="venue">Nature Communications</span><span class="tag">accepted</span></div></div></article>
+        <article class="pub"><div class="year">2026</div><div>
+          <a class="title" href="https://doi.org/10.1038/s41587-025-02642-8" target="_blank" rel="noopener">Far-red chemigenetic kinase biosensors enable multiplexed and super-resolved imaging of signaling networks</a>
+          <div class="meta"><span>M. Frei, …, <span class="me">Z. Wang</span>, et al.</span><span class="venue">Nature Biotechnology</span><a class="doi" href="https://doi.org/10.1038/s41587-025-02642-8" target="_blank" rel="noopener">doi:10.1038/s41587-025-02642-8</a></div></div></article>
+        <article class="pub"><div class="year">2026</div><div>
+          <a class="title" href="https://doi.org/10.1186/s13024-026-00990-w" target="_blank" rel="noopener">Lipid-driven membrane remodeling engages a lysosome-dependent adaptive repair program during retinal aging</a>
+          <div class="meta"><span>E. Tom, …, <span class="me">Z. Wang</span>, et al.</span><span class="venue">Molecular Neurodegeneration</span><a class="doi" href="https://doi.org/10.1186/s13024-026-00990-w" target="_blank" rel="noopener">doi:10.1186/s13024-026-00990-w</a></div></div></article>
+        <article class="pub"><div class="year">2026</div><div>
+          <span class="title">The COX2-PGE2-PKA axis suppresses antiviral immunity by inhibiting mtDNA-dependent STING activation</span>
+          <div class="meta"><span>P. Vo, …, <span class="me">Z. Wang</span>, et al.</span><span class="venue">Cell Reports</span><span class="tag">accepted</span></div></div></article>
+        <article class="pub"><div class="year">2026</div><div>
+          <span class="title">Mapping 4D mitochondrial phenotypes in brain organoid rosettes with lattice light-sheet microscopy</span>
+          <div class="meta"><span>M. Medina-Carbonero, <span class="me">Z. Wang</span>, et al.</span><span class="tag">in preparation</span></div></div></article>
+        <article class="pub"><div class="year">2025</div><div>
+          <a class="title" href="https://doi.org/10.1111/jmi.13358" target="_blank" rel="noopener">LiveLattice: Real-time visualisation of tilted light-sheet microscopy data using a memory-efficient transformation algorithm</a>
+          <div class="meta"><span><span class="me">Z. Wang*</span>, H. Hakozaki*, et al.</span><span class="venue">Journal of Microscopy</span><a class="doi" href="https://doi.org/10.1111/jmi.13358" target="_blank" rel="noopener">doi:10.1111/jmi.13358</a></div></div></article>
+        <article class="pub"><div class="year">2024</div><div>
+          <a class="title" href="https://doi.org/10.1016/j.neuron.2024.06.002" target="_blank" rel="noopener">Rapid iPSC inclusionopathy models shed light on formation, consequence, and molecular subtype of α-synuclein inclusions</a>
+          <div class="meta"><span>I. Lam, …, <span class="me">Z. Wang</span>, et al.</span><span class="venue">Neuron</span><a class="doi" href="https://doi.org/10.1016/j.neuron.2024.06.002" target="_blank" rel="noopener">doi:10.1016/j.neuron.2024.06.002</a></div></div></article>
+        <article class="pub"><div class="year">2024</div><div>
+          <a class="title" href="https://doi.org/10.1038/s42255-024-00978-0" target="_blank" rel="noopener">Obesity causes mitochondrial fragmentation and dysfunction in white adipocytes due to RalA activation</a>
+          <div class="meta"><span>W. Xia, …, <span class="me">Z. Wang</span>, et al.</span><span class="venue">Nature Metabolism</span><a class="doi" href="https://doi.org/10.1038/s42255-024-00978-0" target="_blank" rel="noopener">doi:10.1038/s42255-024-00978-0</a></div></div></article>
+        <article class="pub"><div class="year">2023</div><div>
+          <a class="title" href="https://doi.org/10.1371/journal.pcbi.1011060" target="_blank" rel="noopener">MitoTNT: Mitochondrial Temporal Network Tracking for 4D live-cell fluorescence microscopy data</a>
+          <div class="meta"><span><span class="me">Z. Wang</span>, et al.</span><span class="venue">PLOS Computational Biology</span><a class="doi" href="https://doi.org/10.1371/journal.pcbi.1011060" target="_blank" rel="noopener">doi:10.1371/journal.pcbi.1011060</a></div></div></article>
+        <article class="pub"><div class="year">2021</div><div>
+          <a class="title" href="https://doi.org/10.1016/j.jbc.2021.100876" target="_blank" rel="noopener">A cancer mutation promotes EphA4 oligomerization and signaling by altering the conformation of the SAM domain</a>
+          <div class="meta"><span>T. M. Light, …, <span class="me">Z. Wang</span>, et al.</span><span class="venue">Journal of Biological Chemistry</span><a class="doi" href="https://doi.org/10.1016/j.jbc.2021.100876" target="_blank" rel="noopener">doi:10.1016/j.jbc.2021.100876</a></div></div></article>
+        <article class="pub"><div class="year">2019</div><div>
+          <a class="title" href="https://doi.org/10.1021/acs.jpcb.9b09352" target="_blank" rel="noopener">Coaction of electrostatic and hydrophobic interactions: dynamic constraints on disordered TrkA juxtamembrane domain</a>
+          <div class="meta"><span><span class="me">Z. Wang</span>, et al.</span><span class="venue">The Journal of Physical Chemistry B</span><a class="doi" href="https://doi.org/10.1021/acs.jpcb.9b09352" target="_blank" rel="noopener">doi:10.1021/acs.jpcb.9b09352</a></div></div></article>
+      </div>
+
+      <div class="group">
+        <h3>Patents pending <span class="tag" style="margin-left:8px">co-inventor · applicant: The Regents of the University of California</span></h3>
+        <div class="row"><div class="when">2026</div><div><div class="what">A Foundation Model for Phenotypic Analysis</div><div class="num">PCT/US2026/015545 · published WO 2026/174315 A1</div></div></div>
+        <div class="row"><div class="when">2025</div><div><div class="what">Systems and Methods for Accelerated Processing of Light-Sheet Microscopy Data</div><div class="num">PCT/US2025/025373 · published WO 2025/222122 A1</div></div></div>
+        <div class="row"><div class="when">2023</div><div><div class="what">4D Fluorescence Microscopy Organelle Network Tracking</div><div class="num">U.S. App. No. 18/832,021 · published US 2025/0200763 A1</div></div></div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============ OUTSIDE THE LAB ============ -->
+  <section class="sec" id="life">
+    <p class="eyebrow">Outside the lab</p>
+    <h2>Off hours</h2>
+    <div class="sec-body">
+      <div class="photos">
+        <figure class="photo slot missing"><img src="media/life-snowboarding.jpg" alt="Snowboarding a tree run in deep snow"><span class="ph">photo<br>media/life-snowboarding.jpg</span></figure>
+        <figure class="photo slot missing"><img src="media/life-scuba.jpg" alt="Scuba diving over a reef"><span class="ph">photo<br>media/life-scuba.jpg</span></figure>
+        <figure class="photo slot missing"><img src="media/life-cats.jpg" alt="Two cats lying on a wooden floor, looking up at the camera"><span class="ph">photo<br>media/life-cats.jpg</span></figure>
+        <figure class="photo slot missing"><img src="media/life-cs2.jpg" alt="Counter-Strike 2 key art"><span class="ph">photo<br>media/life-cs2.jpg</span></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="sec contact" id="contact">
+    <p class="eyebrow">Contact</p>
+    <div class="sec-body" style="margin-top:14px">
+      <p class="big">Finishing my Ph.D. in December 2026, and looking for a team where imaging, data and models sit at the same table.</p>
+      <p class="sub">I'm exploring industry roles in imaging-based phenomics, AI-enabled drug discovery and virtual-cell modeling. Based in San Diego, CA. Email is the fastest way to reach me.</p>
+      <div class="links">
+        <a class="primary" href="mailto:ziw056@ucsd.edu">ziw056@ucsd.edu</a>
+        <a href="Zach_Wang_CV.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+        <a class="ext" href="https://www.linkedin.com/in/zichen-zachary-wang/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="ext" href="https://github.com/zichenzachwang" target="_blank" rel="noopener">GitHub</a>
+        <a class="ext" href="https://scholar.google.com/citations?user=X08Msa0AAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Zichen (Zachary) Wang</span>
+    <span>Last updated September 2026</span>
+  </footer>
+<dialog class="lightbox" id="lightbox" aria-label="Video, full size">
+  <div class="lb-bar"><span id="lb-title"></span><button class="lb-close" type="button" id="lb-close">Close ✕</button></div>
+  <video id="lb-video" controls playsinline preload="metadata"></video>
+</dialog>
+</main>
+
+
+<script>
+(function(){
+  // Media slots start out labeled "missing" and reveal themselves once real media loads,
+  // so a missing headshot, photo or demo video never shows as a broken image or black box.
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Demo videos keep their sources in data-src until the card comes within a screen of the
+  // viewport, so the page doesn't pull ~20 MB of footage before anyone scrolls. Posters show
+  // in the meantime; without IntersectionObserver everything just loads as it used to.
+  function cardSrc(video){
+    var s = video.querySelector('source');
+    return s ? (s.getAttribute('src') || s.dataset.src) : '';
+  }
+  function loadVideo(video){
+    if(video.dataset.loaded) return;
+    video.dataset.loaded = '1';
+    video.querySelectorAll('source[data-src]').forEach(function(s){ s.src = s.dataset.src; });
+    video.load();
+    if(!reduce) video.play().catch(function(){});
+  }
+  var io = ('IntersectionObserver' in window) && new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ loadVideo(e.target); io.unobserve(e.target); } });
+  }, {rootMargin: '100% 0px'});
+  function watch(video){
+    if(!video.querySelector('source[data-src]')) return;
+    if(io) io.observe(video); else loadVideo(video);
+  }
+
+  document.querySelectorAll('.slot').forEach(function(slot){
+    var img = slot.querySelector('img'), video = slot.querySelector('video');
+    var reveal = function(){ slot.classList.remove('missing'); };
+    if(img){
+      img.addEventListener('load', reveal);
+      if(img.complete && img.naturalWidth > 0) reveal();
+    }
+    if(video){
+      video.addEventListener('loadedmetadata', reveal);
+      if(video.readyState >= 1) reveal();
+      if(reduce){ video.removeAttribute('autoplay'); video.setAttribute('controls',''); }
+      var fig = slot.closest('.media'), btn = fig && fig.querySelector('.expand');
+      if(btn){
+        var open = function(){ openLightbox(btn.dataset.full, cardSrc(video), video.getAttribute('aria-label')); };
+        btn.addEventListener('click', open);
+        video.addEventListener('click', function(){ if(!video.hasAttribute('controls')) open(); });
+      }
+      // The poster reveals the card straight away, so a tile never sits on its placeholder
+      // while its video is still waiting to load.
+      if(video.poster){
+        var probe = new Image();
+        probe.onload = reveal;
+        probe.onerror = function(){ video.removeAttribute('poster'); };
+        probe.src = video.poster;
+      }
+      watch(video);
+    }
+  });
+
+  // Full-size lightbox. Tries media/full/<name>.mp4 first (higher resolution, no audio) and falls back to the card's own file if the full-size one isn't there.
+  var lb = document.getElementById('lightbox'), lbv = document.getElementById('lb-video'), lbt = document.getElementById('lb-title');
+  function openLightbox(fullSrc, fallbackSrc, title){
+    if(!lb || !lb.showModal) { window.open(fullSrc, '_blank'); return; }
+    lbt.textContent = title || '';
+    lbv.onerror = function(){ if(lbv.src.indexOf(fallbackSrc) === -1){ lbv.src = fallbackSrc; lbv.play().catch(function(){}); } };
+    lbv.src = fullSrc;
+    lb.showModal();
+    lbv.play().catch(function(){});
+  }
+  function closeLightbox(){ lbv.pause(); lbv.removeAttribute('src'); lbv.load(); if(lb.open) lb.close(); }
+  if(lb){
+    document.getElementById('lb-close').addEventListener('click', closeLightbox);
+    lb.addEventListener('close', function(){ lbv.pause(); lbv.removeAttribute('src'); lbv.load(); });
+    lb.addEventListener('click', function(e){ if(e.target === lb) closeLightbox(); });
+  }
+})();
+</script>
+
+</body>
+</html>
