@@ -197,6 +197,10 @@
   .work .desc{margin-top:12px; color:var(--ink-2); font-size:.98rem;}
   .work .wlinks{display:flex; flex-wrap:wrap; gap:4px 16px; margin-top:12px; font-size:.9rem; font-weight:500;}
   .work .wlinks a::after{content:" ↗"; font-size:.8em; color:var(--muted);}
+  /* journal name carries the credibility, so lift it out of the muted eyebrow.
+     Kept in the ink colour rather than the accent, which on this page means "link". */
+  .work .eyebrow{font-size:.76rem;}
+  .work .eyebrow em{font-style:normal; font-weight:600; color:var(--ink);}
   .media{position:relative; aspect-ratio:4/3; border-radius:var(--radius); overflow:hidden; background:var(--surface-2); border:1px solid var(--line);}
   .media video{display:block; width:100%; height:100%; object-fit:cover; background:var(--surface-2);}
   .media video{cursor:zoom-in;}
@@ -325,7 +329,7 @@
           <button class="expand" type="button" data-full="media/full/mitospace.mp4" aria-label="Open the MitoSpace video full size">Full size ⤢</button>
         </figure>
         <div>
-          <p class="eyebrow"><em>Cell</em> · 2026</p>
+          <p class="eyebrow">Published in <em>Cell</em> · 2026</p>
           <h3>MitoSpace <span>— a self-supervised map of mitochondrial phenotypes</span></h3>
           <p class="ptitle">4D spatiotemporal landscape of mitochondrial phenotypes across cellular states unlocked through representation learning</p>
           <p class="authors">D. Agarwal*, <span class="me">Z. Wang*</span>, et al. &nbsp;·&nbsp; *equal contribution</p>
@@ -347,7 +351,7 @@
           <button class="expand" type="button" data-full="media/full/readdy-cell.mp4" aria-label="Open the ReaDDy Cell video full size">Full size ⤢</button>
         </figure>
         <div>
-          <p class="eyebrow"><em>Cell</em> · 2026</p>
+          <p class="eyebrow">Published in <em>Cell</em> · 2026</p>
           <h3>ReaDDy Cell <span>— whole-cell digital twins from 4D microscopy</span></h3>
           <p class="ptitle">Whole-cell particle-based digital twin simulations from 4D lattice light-sheet microscopy data</p>
           <p class="authors">E. Arkfeld, <span class="me">Z. Wang</span>, et al.</p>
@@ -369,7 +373,7 @@
           <button class="expand" type="button" data-full="media/full/mitotnt.mp4" aria-label="Open the MitoTNT video full size">Full size ⤢</button>
         </figure>
         <div>
-          <p class="eyebrow"><em>PLOS Computational Biology</em> · 2023</p>
+          <p class="eyebrow">Published in <em>PLOS Computational Biology</em> · 2023</p>
           <h3>MitoTNT <span>— tracking organelle networks through time</span></h3>
           <p class="ptitle">MitoTNT: Mitochondrial Temporal Network Tracking for 4D live-cell fluorescence microscopy data</p>
           <p class="authors"><span class="me">Z. Wang</span>, et al.</p>
@@ -390,7 +394,7 @@
           <button class="expand" type="button" data-full="media/full/livelattice.mp4" aria-label="Open the LiveLattice video full size">Full size ⤢</button>
         </figure>
         <div>
-          <p class="eyebrow"><em>Journal of Microscopy</em> · 2025</p>
+          <p class="eyebrow">Published in <em>Journal of Microscopy</em> · 2025</p>
           <h3>LiveLattice <span>— real-time lattice light-sheet data, as it streams</span></h3>
           <p class="ptitle">LiveLattice: Real-time visualisation of tilted light-sheet microscopy data using a memory-efficient transformation algorithm</p>
           <p class="authors"><span class="me">Z. Wang*</span>, H. Hakozaki*, et al. &nbsp;·&nbsp; *equal contribution</p>
